@@ -1,0 +1,477 @@
+/* Обнуляем стандартные отступы и поля */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    position: relative; /* Установка позиции относительно тела документа */
+    
+}
+
+/* Стили для навигационного меню */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.logo .fa-meteor {
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: white;
+    margin-right: 20px;
+}
+
+.logo-text {
+    color: white;
+    margin-right: 30px;
+}
+
+#navbar, #navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#navbar {
+    height: 70px; /* Увеличиваем высоту навигационного меню */
+    background-color:black;
+    display: flex; /* Используем flexbox для расположения элементов в строку */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    justify-content: center; /* Выравниваем элементы по горизонтали */
+    margin-right: 0; /* Убираем отступ */
+}
+
+#navbar img {
+    margin-right: 10px; /* Отступ между логотипом и пунктами меню */
+    width: 75px;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar li {
+    position: relative;
+    display: inline-block;
+}
+
+#navbar li:hover::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+#navbar li:nth-child(5)::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+#navbar li a {
+    display: block;
+    padding: 20px; /* Увеличиваем отступы для большего кликабельного пространства */
+    color: white;
+    text-decoration: none;
+}
+
+#navbar li.search {
+    margin-left: 20px; /* Отступ для элемента "Поиск" */
+}
+
+/* Стили для подпункта */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    z-index: 1;
+}
+
+#navbar li:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    display: block;
+}
+
+.submenu li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.fa-moon {
+    color: white;
+    font-size: 24px; 
+    margin-left: 50px;
+}
+
+.fa-globe{
+    color: white;
+    font-size: 24px; 
+    margin-left: 50px;
+}
+
+.header {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9)), no-repeat center/cover;
+}
+
+.login-form {
+    max-width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #333; /* Цвет фона формы */
+    color: white; /* Цвет текста */
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #555; /* Цвет фона поля ввода */
+    color: white; /* Цвет текста */
+}
+
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007acc;
+    color: white;
+    cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #005b8e;
+}
+
+.image-container {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 400px;
+    position: relative;
+    top: -100px; /* Поднимаем изображение на 200 пикселей вверх */
+    left: 30px; /* Перемещаем изображение на 100 пикселей влево */
+    transform: scale(0.5); /* Уменьшаем размер изображения на 50% */
+    filter: brightness(10%); /* Сделать изображение на 50% темнее */
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #333; /* Цвет фона таблицы */
+    color: white; /* Цвет текста */
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+    border-radius: 6px 6px 0 0;
+    background-color: #555; /* Цвет фона ячеек */
+    color: white; /* Цвет текста */
+}
+
+th {
+    background: linear-gradient(to right, black, black);
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Additional styles for the layout */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.container {
+    width: 45%;
+}
+
+.container.table-left {
+    margin-right: 5%;
+    margin-top: 40px;
+}
+
+.container.table-right {
+    margin-left: 5%;
+}
+
+.top-label {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 200px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Стили для подвала */
+.footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed; /* Изменено на fixed */
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Устанавливаем фиксированную высоту подвала */
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Стили для иконок instagram, facebook, vk */
+.footer-images {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 30px;
+    margin-top: -30px;
+    margin-right: 10px;
+}
+
+.footer-images i {  
+    margin-right: 20px; /* Расстояние между иконками */
+}
+
+@media (min-width: 1200px) {
+    .fa-bars {
+        display: none;
+        color: white;
+        font-size: 0px;
+        margin-left: 50px;
+    }
+}
+@media (max-width: 1200px) {
+    .fa-bars {
+        display: none;
+        color: white;
+        font-size: 0px;
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    #navbar li {
+        white-space: nowrap;
+    }
+    
+    .fa-bars {
+        display: none;
+        color: white;
+        font-size: 0px;
+        margin-left: 50px;
+    }
+    .carousel {
+        width: 100%;
+        max-width: 500px;
+        position: absolute;
+        left: 10px;
+        bottom: 150px;
+    }
+
+    .fa-moon {
+        color: white;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+    .fa-globe {
+        color: white;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Центрируем элементы по вертикали */
+        margin-left: 30px;
+    }
+
+    .logo .fa-meteor {
+        margin-bottom: 5px;
+        font-size: 24px;
+        color: white;
+        margin-left: 0; /* Изменено на 0, чтобы уменьшить отступ при уменьшении экрана */
+    }
+
+    .logo-text {
+        color: white;
+        margin-left: 0; /* Изменено на 0, чтобы уменьшить отступ при уменьшении экрана */
+    }
+
+    .carousel {
+        width: 100%; /* Изменено на 100%, чтобы слайдер занимал всю доступную ширину */
+        max-width: none; /* Изменено на none, чтобы удалить ограничение максимальной ширины слайдера */
+        position: static; /* Изменено на static, чтобы слайдер был расположен в потоке документа */
+        margin: 20px auto; /* Добавлен отступ сверху и снизу для центрирования слайдера */
+        bottom: auto; /* Изменено на auto, чтобы удалить позиционирование слайдера по нижнему краю */
+        left: auto; /* Изменено на auto, чтобы удалить позиционирование слайдера по левому краю */
+    }
+
+    .fa-bars {
+        display: block;
+        color: white;
+        font-size: 48px;
+        margin-left:150px; /* Изменено на 10px, чтобы уменьшить отступ при уменьшении экрана */
+    }
+
+    /* Изменения для отображения меню при клике на иконку fa-bars */
+    #navbar ul {
+        display: none;
+        position: absolute;
+        top: 70px; /* Располагаем меню ниже шапки */
+        left: 0;
+        background-color: black; /* Цвет фона меню */
+        width: 50%; /* Изменено на 100%, чтобы меню занимало всю доступную ширину */
+        z-index: 1;
+    }
+
+    #navbar ul li {
+        display: block;
+        position: relative;
+    }
+
+    #navbar ul li:hover::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+    }
+
+    #navbar ul li a {
+        display: block;
+        padding: 15px 20px; /* Уменьшаем вертикальные отступы */
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Стили для иконок в вертикальном меню */
+    #navbar ul .fa {
+        margin-right: 10px; /* Отступ между иконкой и текстом */
+    }
+
+    .submenu {
+        display: none !important; /* Изменено на none, чтобы скрыть подменю при уменьшении экрана */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #007acc;
+        z-index: 1;
+        }
+
+    .footer {
+        text-align: center; /* Выравниваем текст по центру */
+        height: 15%;
+    }
+
+    .footer p {
+        margin-bottom: 10px; /* Добавляем отступ снизу для создания пространства между текстом и иконками */
+    }
+
+    .footer-images {
+        display: flex;
+        justify-content: center; /* Центрируем иконки по горизонтали */
+        margin-top: 10px; /* Добавляем отступ над иконками */
+    }
+
+    .footer-images i {
+        margin: 0 5px; /* Добавляем небольшие отступы между иконками */
+    }
+
+    .image-container {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 400px;
+        position: relative;
+        top: -50px; 
+        left: 10px; 
+        transform: scale(0.3); 
+    }
+
+    .container {
+        max-width: 90%;
+    }
+
+    .flex-container {
+        flex-direction: column; 
+        margin-bottom: 100px;
+        z-index: 0;
+    }
+
+    .container.table-left {
+        width: 90%; 
+        margin-right: 30px;
+    }
+
+    .container.table-right {
+        width: 80%; 
+        margin-left: 50px;
+    }
+    
+    .top-label {
+        margin-left: 150px; 
+    }
+}

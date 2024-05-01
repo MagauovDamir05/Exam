@@ -1,0 +1,371 @@
+/* Обнуляем стандартные отступы и поля */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    position: relative; /* Установка позиции относительно тела документа */
+}
+
+/* Стили для навигационного меню */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.logo .fa-meteor {
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: white;
+    margin-right: 20px;
+}
+
+.logo-text {
+    color: white;
+    margin-right: 30px;
+}
+
+#navbar, #navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#navbar {
+    height: 70px; /* Увеличиваем высоту навигационного меню */
+    background-color: #007acc;
+    display: flex; /* Используем flexbox для расположения элементов в строку */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    justify-content: center; /* Выравниваем элементы по горизонтали */
+    margin-right: 0; /* Убираем отступ */
+}
+
+#navbar img {
+    margin-right: 10px; /* Отступ между логотипом и пунктами меню */
+    width: 75px;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar li {
+    position: relative;
+    display: inline-block;
+}
+
+#navbar li:hover::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+#navbar li:nth-child(3)::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+#navbar li a {
+    display: block;
+    padding: 20px; /* Увеличиваем отступы для большего кликабельного пространства */
+    color: white;
+    text-decoration: none;
+}
+
+/* Стили для подпункта */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #007acc;
+    z-index: 1;
+}
+
+#navbar li:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    display: block;
+}
+
+.submenu li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.fa-moon,
+.fa-globe,
+.fa-bars {
+    color: white;
+    font-size: 24px;
+    margin-left: 50px;
+}
+
+h2 {
+    text-align: center;
+    color: #00AEEF;
+    margin-top: 30px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+.subject {
+    margin: 10px;
+    padding: 20px;
+    background-color: #007acc;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    flex: 0 0 calc(30% - 200px); /* Распределение блоков на 20% ширины с отступами */
+}
+.subject.selected {
+    background-color: darkblue; /* Цвет выбранных предметов */
+}
+
+.start-test-button {
+    display: block;
+    margin: 20px auto; /* Центрирование кнопки по горизонтали и добавление отступа сверху */
+    padding: 10px 20px;
+    background-color: #1437AD; /* Синий цвет фона */
+    color: white; /* Белые буквы */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.start-test-button:hover {
+    background-color: #005f8b; /* Изменение цвета фона при наведении */
+}
+
+.loader {
+    border: 5px solid #f3f3f3; /* Светлый цвет границы */
+    border-top: 5px solid #3498db; /* Цвет границы, соответствующий основному цвету вашего дизайна */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite; /* Анимация вращения */
+    display: none; /* По умолчанию скрыта */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрирование по центру экрана */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Стили для подвала */
+.footer {
+    background-color: #007acc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-height: 60px; /* Изменим высоту на min-height */
+    display: flex; /* Добавим flex */
+    flex-direction: column; /* Установим направление столбцом */
+    justify-content: center; /* Выравним содержимое по центру */
+}
+
+
+.footer p {
+    margin: 0;
+}
+
+/* Стили для иконок instagram, facebook, vk */
+.footer-images {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 30px;
+    margin-top: -10px;
+    margin-right: 10px;
+}
+
+.footer-images i {
+    margin-right: 20px; /* Расстояние между иконками */
+}
+
+@media (min-width: 1200px) {
+    .fa-bars {
+        display: none;
+        color: white;
+        font-size: 0px;
+        margin-left: 50px;
+    }
+}
+@media (max-width: 1200px) {
+    .fa-bars {
+        display: none;
+        color: white;
+        font-size: 0px;
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    #navbar li {
+        white-space: nowrap;
+    }
+    
+    .fa-bars {
+        display: none;
+        color: white;
+        font-size: 0px;
+        margin-left: 50px;
+    }
+
+    .fa-moon {
+        color: white;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+    .fa-globe {
+        color: white;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Центрируем элементы по вертикали */
+        margin-left: 30px;
+    }
+
+    .logo .fa-meteor {
+        margin-bottom: 5px;
+        font-size: 24px;
+        color: white;
+        margin-left: 0; /* Изменено на 0, чтобы уменьшить отступ при уменьшении экрана */
+    }
+
+    .logo-text {
+        color: white;
+        margin-left: 0; /* Изменено на 0, чтобы уменьшить отступ при уменьшении экрана */
+    }
+
+    .fa-bars {
+        display: block;
+        color: white;
+        font-size: 48px;
+        margin-left:150px; /* Изменено на 10px, чтобы уменьшить отступ при уменьшении экрана */
+    }
+
+    /* Изменения для отображения меню при клике на иконку fa-bars */
+    #navbar ul {
+        display: none;
+        position: absolute;
+        top: 70px; /* Располагаем меню ниже шапки */
+        left: 0;
+        background-color: #007acc; /* Цвет фона меню */
+        width: 50%; /* Изменено на 100%, чтобы меню занимало всю доступную ширину */
+        z-index: 1;
+    }
+
+    #navbar ul li {
+        display: block;
+        position: relative;
+    }
+
+    #navbar ul li:hover::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+    }
+
+    #navbar ul li a {
+        display: block;
+        padding: 15px 20px; /* Уменьшаем вертикальные отступы */
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Стили для иконок в вертикальном меню */
+    #navbar ul .fa {
+        margin-right: 10px; /* Отступ между иконкой и текстом */
+    }
+
+    .submenu {
+        display: none !important; /* Изменено на none, чтобы скрыть подменю при уменьшении экрана */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #007acc;
+        z-index: 1;
+        }
+
+    h2 {
+        text-align: center;
+        color: #00AEEF;
+        margin-top: 10px;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .footer {
+        text-align: center; /* Выравниваем текст по центру */
+        height: 15%;
+        position: static;
+        margin-top: 50px;
+    }
+
+    .footer p {
+        margin-bottom: 10px; /* Добавляем отступ снизу для создания пространства между текстом и иконками */
+    }
+
+    .footer-images {
+        display: flex;
+        justify-content: center; /* Центрируем иконки по горизонтали */
+        margin-top: 10px; /* Добавляем отступ над иконками */
+    }
+
+    .footer-images i {
+        margin: 0 5px; /* Добавляем небольшие отступы между иконками */
+    }
+
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test</title>
+        <link rel="stylesheet" href="css/test light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+<body>
+    <header class="header">
+    <div id="navbar">
+        <div id="navbar">
+            <div class="logo">
+                <i class="fas fa-meteor"></i>
+                <div class="logo-text">METATEST</div>
+            </div>
+        </div>
+        
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="fff.html">Предметы</a></li>
+            <li><a href="test.html">Пройти тест</a></li>
+            <li><a href="about us.html">О сайте</a></li>
+            <li><a href="personal account.html">Войти</a></li>
+            <li>
+                <ul class="submenu">
+                    <li><a href="fff.html">Русский</a></li>
+                    <li><a href="fff.html">Казахский</a></li>
+                    <li><a href="fff.html">Английский</a></li>
+                </ul>
+            </li>
+            
+            <a href="#"><i class="fas fa-globe"></i></a>
+            <a href="#"><i class="far fa-moon"></i></a>
+        </ul>
+        <a href="#"><i class="fas fa-bars"></i></a>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // При клике на иконку глобуса
+            $('.fa-globe').click(function(){
+                // Показываем или скрываем подменю
+                $('.submenu').toggle();
+            });
+        });
+
+        $(document).ready(function(){
+            // Обработчик события клика по иконке
+            $('.fa-moon').click(function(){
+                // Проверяем текущую тему
+                var currentTheme = $('#theme').attr('href');
+                // Если текущая тема - светлая, переключаем на темную и наоборот
+                if(currentTheme == 'css/test light.css'){
+                    $('#theme').attr('href', 'css/test dark.css');
+                } else {
+                    $('#theme').attr('href', 'css/test light.css');
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $('.fa-bars').click(function(){
+                $('#navbar ul').toggle();
+            });
+        });
+
+    </script>
+    
+    <h2>Обязательные предметы</h2>
+
+<div class="container">
+    <div class="subject small">История Казахстана</div>
+    <div class="subject small">Грамотность чтения</div>
+    <div class="subject small">Математическая грамотность</div>
+</div>
+
+<h2>Профильные предметы</h2>
+
+<div class="container">
+    <div class="container">
+        <div class="subject">Математика</div>
+        <div class="subject">Физика</div>
+        <div class="subject">Химия</div>
+        <div class="subject">Биология</div>
+        <div class="subject">Информатика</div>
+    </div>
+    <div class="container">
+        <div class="subject">Всемирная история</div>
+        <div class="subject">География</div>
+        <div class="subject">Основы права</div>
+        <div class="subject">Английский язык</div>
+        <div class="subject">Казахский язык</div>
+    </div>
+</div>
+
+<button class="start-test-button" id="startTestButton">Начать тестирование</button>
+<div class="loader" id="loader"></div>
+
+<!-- Подключение jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var selectedCount = 0;
+        
+        $(".subject").click(function(){
+            // Проверка, является ли кликнутый предмет одним из обязательных
+            if ($(this).text() === "История Казахстана" || 
+                $(this).text() === "Грамотность чтения" || 
+                $(this).text() === "Математическая грамотность") {
+                return;
+            }
+            
+            // Проверка, сколько предметов уже выбрано
+            if ($(this).hasClass("selected")) {
+                $(this).removeClass("selected");
+                selectedCount--;
+            } else {
+                if (selectedCount < 2) {
+                    $(this).addClass("selected");
+                    selectedCount++;
+                } else {
+                    alert("Можно выбрать только два профильных предмета.");
+                }
+            }
+        });
+    });
+
+        document.getElementById('startTestButton').addEventListener('click', function() {
+        var loader = document.getElementById('loader');
+        loader.style.display = 'block'; // Показываем анимацию загрузки
+        setTimeout(function() {
+            loader.style.display = 'none'; // Скрываем анимацию загрузки после завершения "загрузки"
+        }, 30000);
+    });
+</script>
+    
+    <div class="footer">
+        <footer>
+            <p>&copy; 2024 Все права защищены. Пользовательское соглашение</p>
+            <div class="footer-images">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-vk"></i>
+            </div>
+        </footer>
+    </div>
+    </header>
+</body>
+</html>
